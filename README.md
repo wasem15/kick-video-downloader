@@ -1,50 +1,95 @@
-# React + TypeScript + Vite
+# Kick Stream Downloader
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React/TypeScript web prototype for exploring a streaming-download workflow around Kick URLs.
 
-Currently, two official plugins are available:
+The current implementation focuses on the user interface and persistence flow. Stream metadata, progress, and download actions are simulated in the application rather than backed by a complete media-download service.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What it demonstrates
 
-## Expanding the ESLint configuration
+- React component architecture
+- TypeScript application state
+- URL input and stream-information workflow
+- Download-history UI
+- Pause, resume, and cancel states
+- Responsive UI components
+- Client-side persistence through the project data layer
+- Form and UI component composition
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Current workflow
 
-- Configure the top-level `parserOptions` property like this:
+~~~text
+Kick URL
+   │
+   ▼
+URL input
+   │
+   ▼
+Simulated stream inspection
+   │
+   ▼
+Stream information
+   │
+   ▼
+Quality selection
+   │
+   ▼
+Download record
+   │
+   ▼
+History / status UI
+~~~
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Technology
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- React 18
+- TypeScript
+- Vite
+- React Router
+- Tailwind CSS
+- Radix UI
+- Zustand
+- TanStack Query
+- Fine data layer
+- Vitest-ready frontend tooling
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Project structure
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+~~~text
+src/
+├── components/       # Reusable UI and domain components
+├── hooks/            # React hooks
+├── lib/              # Data layer and shared utilities
+├── pages/            # Application pages
+└── main.tsx          # Application entry point
+~~~
+
+The repository also includes SQL migrations for the application data model.
+
+## Getting started
+
+~~~bash
+npm install
+npm run dev
+~~~
+
+Build for production:
+
+~~~bash
+npm run build
+~~~
+
+Run linting:
+
+~~~bash
+npm run lint
+~~~
+
+## Important scope note
+
+This repository should be viewed as a **frontend prototype**, not as a finished media-download backend. The main page explicitly uses simulated stream information and simulated download behavior.
+
+That distinction is intentionally documented so the repository accurately represents the implemented work.
+
+## Portfolio context
+
+This is a supporting frontend project demonstrating React/TypeScript UI architecture. The larger full-stack and AI projects are the primary portfolio pieces.
