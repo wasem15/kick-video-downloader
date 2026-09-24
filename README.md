@@ -89,7 +89,3 @@ npm run lint
 This repository should be viewed as a **frontend prototype**, not as a finished media-download backend. The main page explicitly uses simulated stream information and simulated download behavior.
 
 That distinction is intentionally documented so the repository accurately represents the implemented work.
-
-## Portfolio context
-
-This is a supporting frontend project demonstrating React/TypeScript UI architecture. The larger full-stack and AI projects are the primary portfolio pieces.
